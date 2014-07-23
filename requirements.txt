@@ -1,4 +1,4 @@
-Django==1.7b4
+-e git://github.com/django/django.git
 Markdown==2.4.1
 dj-database-url==0.3.0
 dj-static==0.0.6
