@@ -1,0 +1,25 @@
+{% load endless %}
+{% load django_markdown %}
+
+{% paginate 3 entries %}
+
+{% for object in entries %}
+<section id="blog-content">
+	<article class="post">
+	<h1><a href="{% url "entry_detail" slug=object.slug %}" class="inline-link-2">{{ object.title }}</a></h1>
+	<p style='font-size: 80%; color: #555;'>Posted on {{ object.created }}</p>
+		<p>{{object.body|markdown|truncatewords:150}}</p>
+		<section id="tags">
+			<p style='margin-bottom:-30px;'>Tagged under 
+			{% for tag in object.tags.all %}
+				<a href='{% url "tag_detail" tag=tag.slug %}' class='inline-link'>{{tag.slug}}</a>
+				{% if not forloop.last %}// 
+				{% endif%}
+			{% endfor %}
+			</p>
+		</section>
+	</article>
+</section>
+{% endfor %}
+
+{% show_more "LOAD MORE" "" %}

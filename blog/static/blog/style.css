@@ -1,0 +1,232 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700);
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+
+@media all {html {font-size: 23px;}}
+@media all and (max-width:1000px){html {font-size: 22px;}}
+@media all and (max-width:960px){html {font-size: 21px;}}
+@media all and (max-width:920px){html {font-size: 21px;}}
+@media all and (max-width:880px){html {font-size: 21px;}}
+@media all and (max-width:840px){html {font-size: 20px;}}
+@media all and (max-width:800px){html {font-size: 19px;}}
+@media all and (max-width:760px){html {font-size: 18px;}}
+@media all and (max-width:720px){html {font-size: 17px;}}
+@media all and (max-width:680px){html {font-size: 16px;}}
+@media all and (max-width:640px){html {font-size: 15px;}}
+@media all and (max-width:600px){html {font-size: 14px;}}
+@media all and (max-width:560px){html {font-size: 13px;}}
+@media all and (max-width:520px){html {font-size: 12px;}}
+
+body {
+	background-color:#F3EFFA;
+}
+
+aside { 
+	font-family: "Lato";
+	font-variant: italic;
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 20px;
+	margin-left: -5%;
+	margin-bottom: 25px;
+	width: 107%;
+	max-width: 815px;
+	color: #9C8B8B;
+	text-rendering: opximizeLegibility;
+	border: 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+header {
+    font-family: "Courier";
+    font-weight: lighter;
+    color: black;
+    font-size: 220%;
+    padding-top: 45px;
+    padding-left: 19.5%;
+    margin-bottom: 6px;
+}
+
+nav {
+	width: 17%;
+	font-size: 20;
+	font-family: "Lato";
+	border-right: 1px solid #ccc;
+	position: absolute;
+	top: 300px;
+	margin-left: 30px;
+
+}
+
+nav p {
+	margin: 0;
+	font-family: Courier;
+}
+
+h1, h2, h3 {
+	font-family: "Lato";
+	text-transform: uppercase;
+	font-size: 110%;
+	font-weight: 400;
+	margin-top: 50px;
+	width: 650px;
+    margin-bottom: -2px;
+}
+
+h2 {
+	font-weight: 400;
+	font-size: 105%;
+}
+
+h3 {
+	font-size: 100%;
+}
+
+p {
+	width: 100%;
+	max-width: 700px;
+	font-family: "PT Serif";
+	font-weight: normal;
+	text-indent: 25px;
+	text-align: left;
+	text-rendering: opximizeLegibility;
+	line-height: 1.4em;
+    color: #777;
+}
+
+p + p {
+	margin-top: -0.5em;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin-top: 30px;
+    width: 650px;
+    padding: 0;
+}
+
+#bottom-nav {
+	border-collapse: collapse;
+}
+
+#blog-content {
+	margin-left: 18%;
+	width: 70%;
+}
+
+#sub-header {
+	font-family: "Lato";
+    font-weight: 300;
+    color: black;
+    font-size: 100%;
+    padding-left: 19.5%;
+}
+
+#navtable {
+    margin-bottom: 0;
+    margin-left: 15.5%;
+    border-top: 1px solid #ccc;
+    width: 105%;
+    max-width: 750px;
+    font-size: 90%;
+}
+
+#navtable tr {
+    border-top: 1px solid #ccc;
+}
+
+#navtable td {
+    vertical-align: top;
+    font-family: "Lato";
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+#navtable td#left .box-link {
+    padding-right: 1em;
+}
+#navtable td#right .box-link {
+    padding-left: 1em;
+}
+
+#navtable td+td {
+    padding: 0;
+    border-left: 1px solid #ccc;
+}
+
+#navtable td#center {
+	text-align: center;
+	padding-top: 12px;
+	width: 10%;
+}
+
+
+#tags {
+	margin-top: 30px;
+	margin-bottom: 59px;
+}
+
+.inline-link {
+    display: inline;
+    margin: 0 0.2em;
+    padding: 3px;
+    padding-top: 1.3px;
+    padding-bottom: 1.3px;
+    background: #97CAF2;
+    border-radius: 2px;
+    transition: all 0.3s ease-out; 
+    /* Font styles */
+    text-decoration: none;
+    font-weight: normal;
+    color: white;
+    text-align: left;
+}
+ 
+.inline-link:hover {
+    background: #53A7EA
+}
+ 
+.inline-link:active {
+    background: #C4E1F8
+}
+ 
+.inline-link:visited {
+    background: #F2BF97
+}
+
+.endless_more, .inline-link-2 {
+    display: inline;
+    border-bottom: 2px solid #97CAF2;
+    transition: all 0.3s ease-out;
+    /* Font styles */
+    text-decoration: none;
+    color: #777;
+}
+ 
+.inline-link-2:hover {
+    color: #ccc;
+
+}
+ 
+.inline-link-2:active {
+    border-bottom-style: solid;
+}
+ 
+.inline-link-2:visited {
+    border-bottom: 2px solid #97CAF2;
+}
+
+.endless_more {
+    margin-left: 43.25%;
+}
+
+.endless_container {
+    font-family: 'Lato';
+    font-size: 90%;
+    margin-bottom: 40px;
+    margin-top: 70px;
+}

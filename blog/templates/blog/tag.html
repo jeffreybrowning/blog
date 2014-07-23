@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% load django_markdown %}
+
+{% block content %}
+	<div> 
+		<h2>Tagged under {{object.slug}}</h2>
+		<ul>
+	      {% for tag in object.tags.all %}
+        	<a href="{% url 'tag_detail' tag=tag.slug %}">{{ tag.slug }}</a>
+ 			{% if not forloop.last %},{% endif %}
+	      {% endfor %}
+		</ul>
+	</div>
+{% endblock %}

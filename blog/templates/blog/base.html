@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>art_to_code</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+</script> 
+    </head>
+
+    <body>
+
+    <header>art_to_code</header>
+	<section id="sub-header">Jeff Browning's personal blog</section>
+	<table id="navtable" style="width:69%;height:50px; margin-top: 25px; border-top: 0px;">
+		<tbody>
+			<tr>
+				<td id="center"><a href="{% url 'index' %}" class="inline-link-2">Home</a></td>
+				<td id="center"><a href="{% url 'index' %}" class="inline-link-2">About&nbsp;Me</a></td>
+				<td id="center"><a href="{% url 'index' %}" class="inline-link-2">Archive</a></td>
+				<td id="center"><a href="https://github.com/jeffreybrowning" class="inline-link-2">Github</td>
+				<td id="center"><a href="http://www.linkedin.com/pub/jeffrey-browning/49/636/a30/" class="inline-link-2">Linkedin</td>
+			</tr>
+		</tbody>
+	</table>
+
+
+    {% block content %}
+
+
+    {% endblock %}
+    <div id="bottom-nav">
+	<table id="navtable" style="width:69%;height:50px;margin-top:20px">
+		<tbody>
+			<tr>
+				<td id="left" style="width:38%;text-align:left">
+				<td id="center" style="width:20%"><a class="inline-link-2" href="{% url "index" %}">top</a></td>
+				<td id="right" style="width:38%;text-align:right"></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+    </body>
+</html>
