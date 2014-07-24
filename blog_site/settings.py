@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-#    'django.contrib.staticfiles',
+    'django.contrib.staticfiles',
     'endless_pagination',
     'blog',
     'django_markdown',
@@ -91,9 +91,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
-#STATIC_URL = '/static/blog/'
+STATIC_URL = '/static/'
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 
-from .local_settings import *
-print DATABASES
+
+try:
+    from local_settings import *
+    print DATABASES
+except Exception as e:
+    pass
 
