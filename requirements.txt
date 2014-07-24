@@ -1,4 +1,4 @@
--e git://github.com/django/django.git@8568e7cfa4fb87cd0a9ead1b3fbb7a39d19e98b9#egg=django
+Django==1.7b4
 Markdown==2.4.1
 dj-database-url==0.3.0
 dj-static==0.0.6
@@ -10,3 +10,4 @@ docutils==0.12
 gunicorn==19.0.0
 psycopg2==2.5.3
 static3==0.5.1
+waitress==0.8.9
