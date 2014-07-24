@@ -70,8 +70,8 @@ WSGI_APPLICATION = 'blog_site.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': dj_database_url.config(),
-    }
+        'ENGINE': dj_database_url.config()
+        }
 }
 
 # Internationalization
@@ -97,7 +97,6 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 
 try:
     from local_settings import *
-    print DATABASES
 except Exception as e:
     pass
 
