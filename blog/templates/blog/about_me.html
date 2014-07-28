@@ -1,1 +1,23 @@
+{% extends "blog/base.html" %}
+{% load django_markdown %}
 
+
+{% block content %}
+
+{% for object in entries %}
+	<article class="post">
+		<section class="date">{{ object.created| date:"d M Y" }}</section>
+		<h1>{{ object.title }}</h1>
+		<section class="tags">Tagged under 
+			{% for tag in object.tags.all %}
+				<a href='{% url "tag_index" tag=tag.slug %}' class='inline-link-2'>{{tag.slug}}</a>
+				{% if not forloop.last %}// 
+				{% endif%}
+			{% endfor %}
+		</section>
+		<p>{{object.body|markdown}}</p>
+	</article>
+
+{% endfor %}
+
+{% endblock %}

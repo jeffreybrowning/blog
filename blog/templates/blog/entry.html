@@ -1,29 +1,20 @@
 {% extends "blog/base.html" %}
 {% load django_markdown %}
-{% load apptags %}
 
-<body>
 
 {% block content %}
-	<section id="main-content">
-		<section id="blog-content">
-	  	<article class="post">
-	    	<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="inline-link-2">{{ object.title }}</a></h1>
-<!--		    	<p>{{ object.created }}</p>  -->
-				<p>{{object.body|markdown}}
-				<section id="tags">
-					<p>Tagged under 
-					{% for tag in object.tags.all %}
-						<a href='{% url "tag_detail" tag=tag.slug %}' class='inline-link'>{{tag.slug}}</a>
-						{% if not forloop.last %}// 
-						{% endif%}
-					{% endfor %}
-					</p>
-				</section>
-		  </article>
+	<article class="post">
+		<section class="date">{{ object.created| date:"d M Y" }}</section>
+		<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="inline-link-2">{{ object.title }}</a></h1>
+		<section class="tags">Tagged under 
+			{% for tag in object.tags.all %}
+				<a href='{% url "tag_index" tag=tag.slug %}' class='inline-link-2'>{{tag.slug}}</a>
+				{% if not forloop.last %}// 
+				{% endif%}
+			{% endfor %}
 		</section>
-	</section>
-</body>
+		<p>{{object.body|markdown}}</p>
+	</article>
 {% endblock %}
 
 <!-- p text size is 22px-->

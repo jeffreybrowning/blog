@@ -18,7 +18,7 @@
 @media all and (max-width:520px){html {font-size: 12px;}}
 
 body {
-	background-color:#F3EFFA;
+	background-color:#FAF1FC;
 }
 
 aside { 
@@ -40,7 +40,7 @@ aside {
 
 header {
     font-family: "Courier";
-    font-weight: lighter;
+    font-weight: normal;
     color: black;
     font-size: 220%;
     padding-top: 45px;
@@ -49,14 +49,15 @@ header {
 }
 
 nav {
+    float: left;
+    text-align: right;
 	width: 17%;
-	font-size: 20;
 	font-family: "Lato";
-	border-right: 1px solid #ccc;
-	position: absolute;
-	top: 300px;
-	margin-left: 30px;
-
+    padding-right: 1rem;
+    margin-left: -22%;
+    font-size: 80%;
+    font-weight: 300;
+    color: #333;
 }
 
 nav p {
@@ -68,35 +69,35 @@ h1, h2, h3 {
 	font-family: "Lato";
 	text-transform: uppercase;
 	font-size: 110%;
-	font-weight: 400;
-	margin-top: 50px;
-	width: 650px;
-    margin-bottom: -2px;
+	font-weight: 300;
+    margin-bottom: .3em;
+    margin-top: 0px;
 }
 
 h2 {
-	font-weight: 400;
+	font-weight: 300;
 	font-size: 105%;
 }
 
 h3 {
+    font-weight: 300;
 	font-size: 100%;
 }
 
 p {
 	width: 100%;
 	max-width: 700px;
-	font-family: "PT Serif";
-	font-weight: normal;
-	text-indent: 25px;
+	font-family: "Times New Roman";
+	text-indent: 23.7px;
 	text-align: left;
 	text-rendering: opximizeLegibility;
 	line-height: 1.4em;
-    color: #777;
+    color: #111;
+    font-weight: 300;
 }
 
 p + p {
-	margin-top: -0.5em;
+	margin-top: -0.2em;
 }
 
 hr {
@@ -116,6 +117,7 @@ hr {
 #blog-content {
 	margin-left: 18%;
 	width: 70%;
+    margin-top: 2em;
 }
 
 #sub-header {
@@ -130,9 +132,11 @@ hr {
     margin-bottom: 0;
     margin-left: 15.5%;
     border-top: 1px solid #ccc;
-    width: 105%;
+    margin-top: 2em;
     max-width: 750px;
     font-size: 90%;
+    height: 2.7em;
+    width: 73%;
 }
 
 #navtable tr {
@@ -160,14 +164,27 @@ hr {
 
 #navtable td#center {
 	text-align: center;
-	padding-top: 12px;
+    padding-top: .5em;
 	width: 10%;
 }
 
+.tags {
+    font-family: "Lato";
+    font-size: 75%;
+    margin-bottom: 1.7em;
+    margin-top: -.1em;
+}
 
-#tags {
-	margin-top: 30px;
-	margin-bottom: 59px;
+.post {
+    margin-bottom: 2em;
+    margin-top: 20px;
+}
+
+.date {
+    font-size: 70%;
+    font-weight: 300;
+    margin: 0px;
+    font-family: "Lato";
 }
 
 .inline-link {
@@ -176,13 +193,13 @@ hr {
     padding: 3px;
     padding-top: 1.3px;
     padding-bottom: 1.3px;
-    background: #97CAF2;
+    background: #C7E4FB;
     border-radius: 2px;
     transition: all 0.3s ease-out; 
     /* Font styles */
     text-decoration: none;
     font-weight: normal;
-    color: white;
+    color: black;
     text-align: left;
 }
  
@@ -198,7 +215,9 @@ hr {
     background: #F2BF97
 }
 
-.endless_more, .inline-link-2 {
+.endless_more, 
+.inline-link-2, 
+.inline-link-body {
     display: inline;
     border-bottom: 2px solid #97CAF2;
     transition: all 0.3s ease-out;
@@ -206,27 +225,34 @@ hr {
     text-decoration: none;
     color: #777;
 }
- 
-.inline-link-2:hover {
-    color: #ccc;
 
+.inline-link-body {
+    color: #111;
+}
+
+.inline-link-2:hover,
+.inline-link-body:hover {
+    color: #ccc;
 }
  
-.inline-link-2:active {
-    border-bottom-style: solid;
+.inline-link-body:hover {
+    color: #aaa;
 }
- 
-.inline-link-2:visited {
-    border-bottom: 2px solid #97CAF2;
+
+.inline-link-2:visited,
+.inline-link-body:visited {
+    border-bottom: 2px solid #FFE598;
 }
 
 .endless_more {
-    margin-left: 43.25%;
 }
 
 .endless_container {
     font-family: 'Lato';
     font-size: 90%;
     margin-bottom: 40px;
-    margin-top: 70px;
+    margin-left: 5%;
+    max-width: 700px;
 }
+
+

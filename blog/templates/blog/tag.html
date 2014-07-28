@@ -2,14 +2,21 @@
 {% load staticfiles %}
 {% load django_markdown %}
 
+
 {% block content %}
-	<div> 
-		<h2>Tagged under {{object.slug}}</h2>
-		<ul>
-	      {% for tag in object.tags.all %}
-        	<a href="{% url 'tag_detail' tag=tag.slug %}">{{ tag.slug }}</a>
- 			{% if not forloop.last %},{% endif %}
-	      {% endfor %}
-		</ul>
-	</div>
+<nav>Posts&nbsp;Tagged<br>with&nbsp;{{tag}}</nav>
+{% for object in entries %}
+	<article class="post">
+	<section class="date">{{ object.created| date:"d M Y" }}</section>
+	<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="inline-link-2">{{ object.title }}</a></h1>
+	<section class="tags">Tagged under 
+		{% for tag in object.tags.all %}
+			<a href='{% url "tag_index" tag=tag.slug %}' class='inline-link-2'>{{tag.slug}}</a>
+			{% if not forloop.last %}// 
+			{% endif%}
+		{% endfor %}
+	</section>
+	<p>{{object.body|markdown|truncatewords:150}}</p>
+	</article>
+{% endfor %}
 {% endblock %}

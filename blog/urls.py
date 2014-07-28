@@ -5,11 +5,9 @@ from . import views
 from models import Entry
 
 urlpatterns = patterns('',
-#    url(r'^$', views.BlogIndex.as_view(), name="index"),
-#    url(r'^$', ListView.as_view(model=Entry, 
-#                                paginate_by=2, 
-#                                template_name="blog/index.html"), name="index"),
     url(r'^$', views.blog_index, name="index"),
-    url(r'^tags/(?P<tag>\S+)$', views.TagDetail.as_view(), name="tag_detail"),
+    url(r'^about-me/', views.about_me, name="about_me"),
+    url(r'^archive/', views.archive_index, name="archive"),
+    url(r'^tags/(?P<tag>\S+)$', views.tag_index, name="tag_index"),
     url(r'^(?P<slug>\S+)$', views.BlogDetail.as_view(), name="entry_detail"),
 )
