@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700);
 @import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic);
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
 
@@ -19,6 +18,10 @@
 
 body {
 	background-color:#FAF1FC;
+}
+
+em {
+    font-size: 110%;
 }
 
 aside { 
@@ -150,11 +153,13 @@ hr {
     font-weight: 300;
 }
 
-#navtable td#left .box-link {
+#navtable td#left {
     padding-right: 1em;
+    padding-top: .5em;
 }
-#navtable td#right .box-link {
+#navtable td#right {
     padding-left: 1em;
+    padding-top: .5em;
 }
 
 #navtable td+td {
@@ -172,7 +177,7 @@ hr {
     font-family: "Lato";
     font-size: 75%;
     margin-bottom: 1.7em;
-    margin-top: -.1em;
+    margin-top: -.4em;
 }
 
 .post {
@@ -187,64 +192,31 @@ hr {
     font-family: "Lato";
 }
 
-.inline-link {
-    display: inline;
-    margin: 0 0.2em;
-    padding: 3px;
-    padding-top: 1.3px;
-    padding-bottom: 1.3px;
-    background: #C7E4FB;
-    border-radius: 2px;
-    transition: all 0.3s ease-out; 
-    /* Font styles */
-    text-decoration: none;
-    font-weight: normal;
-    color: black;
-    text-align: left;
-}
- 
-.inline-link:hover {
-    background: #53A7EA
-}
- 
-.inline-link:active {
-    background: #C4E1F8
-}
- 
-.inline-link:visited {
-    background: #F2BF97
-}
-
 .endless_more, 
-.inline-link-2, 
-.inline-link-body {
+.link, 
+.link-body {
     display: inline;
-    border-bottom: 2px solid #97CAF2;
     transition: all 0.3s ease-out;
     /* Font styles */
     text-decoration: none;
     color: #777;
 }
 
-.inline-link-body {
-    color: #111;
-}
-
-.inline-link-2:hover,
-.inline-link-body:hover {
+.link:hover {
     color: #ccc;
 }
- 
-.inline-link-body:hover {
+
+.link-body {
+    color: #111;
+    border-bottom: 1.2px solid #666;
+}
+
+.link-body:hover {
     color: #aaa;
 }
 
-.inline-link-2:visited,
-.inline-link-body:visited {
-    border-bottom: 2px solid #FFE598;
-}
-
-.endless_more {
+.link-body:visited {
+    border-bottom: 2px solid #ccc;
 }
 
 .endless_container {
@@ -253,6 +225,7 @@ hr {
     margin-bottom: 40px;
     margin-left: 5%;
     max-width: 700px;
+    font-weight: 300;
 }
 
 

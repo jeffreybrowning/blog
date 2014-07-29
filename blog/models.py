@@ -26,6 +26,21 @@ class Entry(models.Model):
     def get_absolute_url(self):
         return reverse("entry_detail", kwargs={"slug": self.slug})
 
+    @property 
+    def get_prev(self):
+        next = Entry.objects.filter(id__lt=self.id)
+        if next:
+            return next[0].slug
+        return False
+
+    @property
+    def get_next(self):
+        prev = Entry.objects.filter(id__gt=self.id)
+        length = len(prev)
+        if prev:
+            return prev[length-1].slug
+        return False
+
     def __unicode__(self):
         return self.title
 

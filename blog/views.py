@@ -29,3 +29,4 @@ def about_me(request, template = "blog/about_me.html"):
     context = {'entries': models.Entry.objects.filter(slug='art_to_code')}
 
     return render(request, template, context)
+

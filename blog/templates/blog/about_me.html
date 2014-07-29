@@ -7,10 +7,11 @@
 {% for object in entries %}
 	<article class="post">
 		<section class="date">{{ object.created| date:"d M Y" }}</section>
+		<nav><em>Achtung</em><br>My first post serves as my "About Me"</nav>
 		<h1>{{ object.title }}</h1>
 		<section class="tags">Tagged under 
 			{% for tag in object.tags.all %}
-				<a href='{% url "tag_index" tag=tag.slug %}' class='inline-link-2'>{{tag.slug}}</a>
+				<a href='{% url "tag_index" tag=tag.slug %}' class='link'>{{tag.slug}}</a>
 				{% if not forloop.last %}// 
 				{% endif%}
 			{% endfor %}
