@@ -1,8 +1,21 @@
 {% extends "blog/base.html" %}
 {% load staticfiles %}
 
+{% block jumbotron %}
+<section id="jumbotron">
+	<section class="container">
+		art_to_code
+		<p>programming tutorials on:</p>
+		<p style="padding-left:0;margin-top:1em;">Python&nbsp;//&nbsp;Django&nbsp;//&nbsp;HTML&nbsp;// CSS&nbsp;//&nbsp;JS&nbsp;//&nbsp;Mongo&nbsp;//&nbsp;SQL<p>
+	</section>
+</section>
+{% endblock %}
+
+
+<section>
 {% block content %}
 {% include page_template %}
+</section>
 
 {% block js %}
 			{{ block.super }}

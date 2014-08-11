@@ -3,11 +3,11 @@
 
 
 {% block content %}
-
 {% for object in entries %}
 	<article class="post">
+		<p>I'm Jeffrey Browning, a software engineer in the bay area. I like bad horror movies and good tiramisu. I wrote the following blog post about my convoluted path to becoming a developer as a first post for the blog. It should tell ya everything you want to know.</p>
+		<p style="margin-left:70%;">~<em>Jeff</em>
 		<section class="date">{{ object.created| date:"d M Y" }}</section>
-		<nav><em>Achtung</em><br>My first post serves as my "About Me"</nav>
 		<h1>{{ object.title }}</h1>
 		<section class="tags">Tagged under 
 			{% for tag in object.tags.all %}
