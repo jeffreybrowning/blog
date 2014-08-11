@@ -113,6 +113,13 @@ p + p {
 	margin-top: -0.2em;
 }
 
+code {
+    border: 1px solid #999;
+    padding: 3px;
+    background-color: #F9F9F9;
+    font-size: 75%;
+}
+
 hr {
     display: block;
     height: 1px;
