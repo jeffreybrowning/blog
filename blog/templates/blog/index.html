@@ -1,28 +1,84 @@
 {% extends "blog/base.html" %}
+{% load django_markdown %}
 {% load staticfiles %}
+{% load endless %}
 
 {% block jumbotron %}
 <section id="jumbotron">
 	<section class="container">
-		&#8220;art_to_code&#8221;
-		<p>In which the following are discussed:</p>
-		<p style="padding-left:0;margin-top:1.5em;color=#eee;">Python&nbsp;//&nbsp;Django&nbsp;//&nbsp;HTML&nbsp;// CSS&nbsp;//&nbsp;JS&nbsp;//&nbsp;Mongo&nbsp;//&nbsp;SQL//Haskell<p>
+		<h1>Art to Code</h1>
+		<h4>In which the following are discussed:</h4>
+		<h4>Python&nbsp;//&nbsp;Django&nbsp;//&nbsp;HTML&nbsp;// CSS&nbsp;//&nbsp;JS&nbsp;//&nbsp;Mongo&nbsp;//&nbsp;SQL&nbsp;//&nbsp;Haskell<h4>
 	</section>
 </section>
 {% endblock %}
 
 
-<section>
 {% block content %}
-{% include page_template %}
+<section class="row">
+{% paginate 3 entries %}
+	<section id='entry-content' class="col-sm-7">
+		{% for object in entries %}
+		<article class="post">
+			<section class="date">{{ object.created| date:"d M Y" }}</section>
+			<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="link">{{ object.title }}</a></h1>
+			<section class="tags">Tagged under 
+				{% for tag in object.tags.all %}
+					<a href='{% url "tag_index" tag=tag.slug %}' class='link-body'>{{tag.slug}}</a>
+					{% if not forloop.last %}// 
+					{% endif%}
+				{% endfor %}
+			</section>
+			<p>{{object.body|markdown|truncatewords:100}}</p>
+			{% if not forloop.last %} <hr><hr>
+			{% endif %}
+		</article>
+		{% endfor %}
+	</section>
+	<section class="col-sm-4 col-sm-offset-1 side-content">
+		<section class="side-entry">
+			<a class="twitter-timeline" href="https://twitter.com/Art_to_Code" data-widget-id="500351040785358848">Tweets by @Art_to_Code</a>
+		</section>
+		<section class="side-entry">
+			<section class="tags-entry">
+				<h3>Popular Tags</h3>
+				{% for tag in tags %}
+					<p><a href='{% url "tag_index" tag=tag.slug %}' class='link-body'>{{tag.slug}}</a></p>
+				{% endfor %}
+			</section>
+		</section>
+	</section>
+</section>
+<section class="row">
+		{% show_more "LOAD MORE" "" %}
 </section>
 
 {% block js %}
-			{{ block.super }}
-    		<script src="http://code.jquery.com/jquery-latest.js"></script>
-				<script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
-		    <script>
-		        $.endlessPaginate()
-		    </script>
+{{ block.super }}
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+  <script>
+      $.endlessPaginate()
+  </script>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+	if(!d.getElementById(id)){js=d.createElement(s);
+		js.id=id;
+		js.src=p+"://platform.twitter.com/widgets.js";
+		fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+</script>
 {% endblock %}
+{% endblock %}
+
+{% block navtable %}
+<section class="footer">
+	<div class="container">
+		<section class="row">
+			<section class="col-sm-7">
+				<a style="color:#ccc;text-align:left;padding-left:0;" class="col-sm-4">Previous Entry</a>
+				<a style="color:#ccc;text-align:center;" class="col-sm-4">Load More</a>
+				<a style="color:#ccc;text-align:right;padding-right:0;" class="col-sm-4">Next Entry</a>
+			</section>
+		</section>
+	</div>
+</section>
 {% endblock %}

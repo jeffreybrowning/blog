@@ -1,41 +1,53 @@
 {% extends "blog/base.html" %}
 {% load django_markdown %}
 
-
 {% block content %}
-	<article class="post">
-		<section class="date">{{ object.created| date:"d M Y" }}</section>
-		<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="link">{{ object.title }}</a></h1>
-		<section class="tags">Tagged under 
-			{% for tag in object.tags.all %}
-				<a href='{% url "tag_index" tag=tag.slug %}' class='link-body'>{{tag.slug}}</a>
-				{% if not forloop.last %}// 
-				{% endif%}
-			{% endfor %}
+<section class="row">
+	<section id='entry-content' class="col-sm-7">
+		<article class="post">
+			<section class="date">{{ object.created| date:"d M Y" }}</section>
+			<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="link">{{ object.title }}</a></h1>
+			<section class="tags">Tagged under 
+				{% for tag in object.tags.all %}
+					<a href='{% url "tag_index" tag=tag.slug %}' class='link-body'>{{tag.slug}}</a>
+					{% if not forloop.last %}// 
+					{% endif%}
+				{% endfor %}
+			</section>
+			<p>{{object.body|markdown}}</p>
+		</article>
+	</section>
+	<section class="col-sm-4 col-sm-offset-1 side-content">
+		{% if object.get_next != False %}
+		<section class="side-entry">
+			<section class="next-entry">
+
+					<h3 style="margin-bottom:.5em;">Next Entry</h3>
+					<section class="date" style="display:inline;">{{ object.get_next.created| date:"d M Y" }}</section>
+					<h4 style="margin-top:0;"><a href="{% url 'entry_detail' slug=object.get_next.slug %}" class="link">{{ object.get_next.title }}</a></h4>
+			</section>
 		</section>
-		<p>{{object.body|markdown}}</p>
-	</article>
-{% endblock %}
-
-{% block navtable %}
- <div id="bottom-nav">
-	<table id="bottomnav">
-		<tbody>
-			<tr>
+		{% endif %}
+		<section class="side-entry">
+			<section class="prev-entry">
+				<h3>Previous Entry</h3>
 				{% if object.get_prev != False %}
-					<td id="left" style="width:38%;text-align:left"><a class='link' href="{% url 'entry_detail' slug=object.get_prev %}">Previous Entry</a></td>
-				{% else %}
-					<td id="left" style="width:38%;text-align:left;color:#ccc;">Previous Entry</td>
+					<section class="date">{{ object.get_prev.created| date:"d M Y" }}</section>
+					<h4><a href="{% url 'entry_detail' slug=object.get_prev.slug %}" class="link">{{ object.get_prev.title }}</a></h4>
 				{% endif %}
-
-				{% if object.get_next != False %}
-					<td id="right" style="width:38%;text-align:right"><a class='link' href="{% url 'entry_detail' slug=object.get_next %}">Next Entry</a></td>
-				{% else %}
-					<td id="right" style="width:38%;text-align:right;color:#ccc;">Next Entry</td>
-				{% endif %}
-			</tr>
-		</tbody>
-	</table>
-</div>
-
+			</section>
+		</section>
+		<section class="side-entry">
+			<a class="twitter-timeline" href="https://twitter.com/Art_to_Code" data-widget-id="500351040785358848">Tweets by @Art_to_Code</a>
+		</section>
+	</section>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+	if(!d.getElementById(id)){js=d.createElement(s);
+		js.id=id;
+		js.src=p+"://platform.twitter.com/widgets.js";
+		fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+	</script>
+</section>
 {% endblock %}
+
+

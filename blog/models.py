@@ -30,7 +30,7 @@ class Entry(models.Model):
     def get_prev(self):
         next = Entry.objects.filter(id__lt=self.id)
         if next:
-            return next[0].slug
+            return next[0]
         return False
 
     @property
@@ -38,7 +38,7 @@ class Entry(models.Model):
         prev = Entry.objects.filter(id__gt=self.id)
         length = len(prev)
         if prev:
-            return prev[length-1].slug
+            return prev[length-1]
         return False
 
     def __unicode__(self):

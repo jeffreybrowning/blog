@@ -2,22 +2,23 @@
 {% load django_markdown %}
 
 {% paginate 3 entries %}
+	<section id='entry-content' class="col-sm-7">
+		{% for object in entries %}
+		<article class="post">
+			<section class="date">{{ object.created| date:"d M Y" }}</section>
+			<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="link">{{ object.title }}</a></h1>
+			<section class="tags">Tagged under 
+				{% for tag in object.tags.all %}
+					<a href='{% url "tag_index" tag=tag.slug %}' class='link-body'>{{tag.slug}}</a>
+					{% if not forloop.last %}// 
+					{% endif%}
+				{% endfor %}
+			</section>
+			<p>{{object.body|markdown|truncatewords:100}}</p>
+			{% if not forloop.last %} <hr><hr>
+			{% endif %}
+		</article>
+		{% endfor %}
+	</section>
 
-{% for object in entries %}
-	<article class="post">
-		<section class="date">{{ object.created| date:"d M Y" }}</section>
-		<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="link">{{ object.title }}</a></h1>
-		<section class="tags">Tagged under 
-			{% for tag in object.tags.all %}
-				<a href='{% url "tag_index" tag=tag.slug %}' class='link-body'>{{tag.slug}}</a>
-				{% if not forloop.last %}// 
-				{% endif%}
-			{% endfor %}
-		</section>
-		<p>{{object.body|markdown|truncatewords:100}}</p>
-		<hr>
-		<hr>
-	</article>
-{% endfor %}
 
-{% show_more "LOAD MORE" "" %}

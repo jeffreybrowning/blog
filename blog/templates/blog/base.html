@@ -1,46 +1,49 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>art_to_code</title>
+        <title>art to code</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/bootstrap.min.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
     </head>
 
     <body>
+	    <section id="wrap">
+	    	<section id="main">
+		    	<section class="masthead">
+		    		<section class="container">
+		    			<section class="row">
+							<a href="{% url 'index' %}" class="link">Home</a>
+							<a href="{% url 'about_me' %}" class="link">About&nbsp;Me</a>
+							<a href="{% url 'archive' %}" class="link">Archive</a>
+							<a href="https://twitter.com/Art_to_Code" target="_blank" class="link">Twitter</a>
+							<a href="https://github.com/jeffreybrowning" target="_blank" class="link">Github</a>
+							<a href="http://www.linkedin.com/pub/jeffrey-browning/49/636/a30/" target="_blank" class="link">LinkedIn</a>
+						</section>
+					</section>
+				</section>
+			    {% block jumbotron %}
+			    {% endblock %}
+				<section class="container">
+			    	{% block content %}
+			    	{% endblock %}
+				</section>
 
-    <header>
-    	<section class="container">
-			<table id="topnav">
-					<tr>
-						<td class="left" style="width:1%;"><h1>art_to_code</h1></td>
-						<td class="center" style="width:3%;"><a href="{% url 'index' %}" class="link">Home</a></td>
-						<td class="center" style="width:3%;"><a href="{% url 'about_me' %}" class="link">About&nbsp;Me</a></td>
-						<td class="center" style="width:3%;"><a href="{% url 'archive' %}" class="link">Archive</a></td>
-						<td class="center" style="width:3%;"><a href="https://twitter.com/Art_to_Code" target="_blank" class="twitter-icon"></a></td>
-						<td class="center" style="width:3%;"><a href="https://github.com/jeffreybrowning" class="github-icon" target="_blank"></td>
-						<td class="center" style="border-right: 1px solid #fff;width:3%;"><a href="http://www.linkedin.com/pub/jeffrey-browning/49/636/a30/" class="linkedin-icon" target="_blank"></td>
-					</tr>
-			</table>
+			</section>
 		</section>
-
-    </header>
-	    {% block jumbotron %}
-	    {% endblock %}
-	<section id="blog-content">
-	    {% block content %}
-	    {% endblock %}
-	</section>
 		{% block navtable %}
-	    <div>
-			<table id="bottomnav">
-				<tbody>
-					<tr>
-						<td id="left" style="width:38%;text-align:left;color:#ccc;">Previous Entry</td>
-						<td id="right" style="width:38%;text-align:right;color:#ccc;">Next Entry</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		<section class="footer">
+		    <div class="container">
+		    	<section class="row">
+					<table class="col-sm-8">
+						<td id="left" style="text-align:left;color:#ccc;">Previous Entry</td>
+						<td id="right" style="text-align:right;color:#ccc;">Next Entry</td>
+					</table>
+				</section>
+			</div>
+		</section>
 		{% endblock %}
     </body>
+
 <script src="{% static 'blog/blog.js' %}"></script>
+<script src="{% static 'blog/bootstrap.min.js' %}"></script>
 </html>

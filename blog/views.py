@@ -7,7 +7,8 @@ def blog_index(request,
                template = 'blog/index.html', 
                page_template = 'blog/paginated.html'):
     context = {'entries': models.Entry.objects.published(),
-               'page_template': page_template}
+               'page_template': page_template,
+               'tags':models.Tag.objects.all()}
     if request.is_ajax():
         template = page_template
     return render(request, template, context)

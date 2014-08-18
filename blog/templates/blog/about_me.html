@@ -2,22 +2,33 @@
 {% load django_markdown %}
 
 
+{% block jumbotron %}
+<section id="jumbotron" style="background-image: url({{STATIC_URL}}blog/sparkler.jpg);">
+	<section class="container">
+	</section>
+</section>
+{% endblock %}
+
 {% block content %}
 {% for object in entries %}
-	<article class="post">
-		<p>I'm Jeffrey Browning, a software engineer in the bay area. I like bad horror movies and good tiramisu. I wrote the following blog post about my convoluted path to becoming a developer as a first post for the blog. It should tell ya everything you want to know.</p>
-		<p style="margin-left:70%;">~<em>Jeff</em>
-		<section class="date">{{ object.created| date:"d M Y" }}</section>
-		<h1>{{ object.title }}</h1>
-		<section class="tags">Tagged under 
-			{% for tag in object.tags.all %}
-				<a href='{% url "tag_index" tag=tag.slug %}' class='link'>{{tag.slug}}</a>
-				{% if not forloop.last %}// 
-				{% endif%}
-			{% endfor %}
-		</section>
-		<p>{{object.body|markdown}}</p>
-	</article>
+<section class="row">
+	<section id='entry-content' class="col-sm-7">
+		<article class="post">
+			<p>I'm Jeffrey Browning, a software engineer in the bay area. I like bad horror movies and good tiramisu. I wrote the following blog post about my convoluted path to becoming a developer as a first post for the blog. It should tell ya everything you want to know.</p>
+			<p style="margin-left:70%;">~<em>Jeff</em>
+			<section class="date">{{ object.created| date:"d M Y" }}</section>
+			<h1>{{ object.title }}</h1>
+			<section class="tags">Tagged under 
+				{% for tag in object.tags.all %}
+					<a href='{% url "tag_index" tag=tag.slug %}' class='link'>{{tag.slug}}</a>
+					{% if not forloop.last %}// 
+					{% endif%}
+				{% endfor %}
+			</section>
+			<p>{{object.body|markdown}}</p>
+		</article>
+	</section>
+</section>
 
 {% endfor %}
 
