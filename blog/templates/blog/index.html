@@ -47,7 +47,7 @@
 		<section class="side-entry">
 			<section class="tags-entry">
 				<h3>Popular Tags</h3>
-				{% for tag in tags %}
+				{% for tag in tags|slice:'7' %}
 					<p><a href='{% url "tag_index" tag=tag.slug %}' class='link-body'>{{tag.slug}}</a></p>
 				{% endfor %}
 			</section>
