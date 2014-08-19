@@ -21,22 +21,19 @@
 		{% if object.get_next != False %}
 		<section class="side-entry">
 			<section class="next-entry">
-
-					<h3 style="margin-bottom:.5em;">Next Entry</h3>
-					<section class="date" style="display:inline;">{{ object.get_next.created| date:"d M Y" }}</section>
-					<h4 style="margin-top:0;"><a href="{% url 'entry_detail' slug=object.get_next.slug %}" class="link">{{ object.get_next.title }}</a></h4>
+					<h4>Next Entry</h4>
+					<h5 style="margin-top:0;"><a href="{% url 'entry_detail' slug=object.get_next.slug %}" class="link">{{ object.get_next.created| date:"d M Y" }}: <b>{{ object.get_next.title }}</b></a></h5>
 			</section>
 		</section>
 		{% endif %}
+		{% if object.get_prev != False %}
 		<section class="side-entry">
 			<section class="prev-entry">
-				<h3>Previous Entry</h3>
-				{% if object.get_prev != False %}
-					<section class="date">{{ object.get_prev.created| date:"d M Y" }}</section>
-					<h4><a href="{% url 'entry_detail' slug=object.get_prev.slug %}" class="link">{{ object.get_prev.title }}</a></h4>
-				{% endif %}
+				<h4>Previous Entry</h4>
+					<h5 style="margin-top:0;"><a href="{% url 'entry_detail' slug=object.get_prev.slug %}" class="link">{{ object.get_prev.created| date:"d M Y" }}: <b>{{ object.get_prev.title }}</b></a></h5>
 			</section>
 		</section>
+		{% endif %}
 		<section class="side-entry">
 			<a class="twitter-timeline" href="https://twitter.com/Art_to_Code" data-widget-id="500351040785358848">Tweets by @Art_to_Code</a>
 		</section>

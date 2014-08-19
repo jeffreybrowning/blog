@@ -5,7 +5,7 @@ html, body {
     padding: 0;
     margin: 0;
     font-family: "Helvetica";
-    font-size: 12.5pt;
+    font-size: 15pt;
     height: 100%;
 }
 
@@ -20,7 +20,6 @@ html, body {
 }
 
 body {
-    background-color:#FAF1FC;
 }
 
 em {
@@ -74,6 +73,9 @@ h3 {
 	font-size: 145%;
 }
 
+h4 {
+    font-weight: bold;
+}
 p {
 	font-family: "Georgia";
 	text-indent: 23.7px;
@@ -111,6 +113,9 @@ ul {
     font-size: 100%;
 }
 
+a {
+    color: black;
+}
 #jumbotron {
     width: 100%;
     height: 13.5em;
@@ -139,7 +144,6 @@ ul {
     padding: 10px;
     margin-top: 20px;
     background-color: #fff;
-    border: 1px solid #ccc;
 }
 
 .side-entry {
@@ -147,10 +151,6 @@ ul {
     border: 1px solid #ccc;
     padding: 10px;
     margin-top: 20px;
-}
-
-.next-entry {
-    padding: 10px;
 }
 
 .side-entry h3 {
@@ -161,18 +161,6 @@ ul {
     margin-top: 0;
 }
 
-.twitter-icon:before {
-    content: url('twitter_inverse.png');
-}
-
-.github-icon:before {
-    content: url('github_inverse.png');
-}
-
-.linkedin-icon:before {
-    content: url('linkedin_inverse.png');
-}
-
 .masthead, .footer {
     text-transform: uppercase;
     font-weight: 300;
@@ -180,7 +168,7 @@ ul {
     width: 100%;
 }
 
-.masthead a, .footer a {
+.masthead a, .footer {
     color: #fff;
     padding: 15px;
     font-size: 90%;
@@ -226,6 +214,7 @@ ul {
 
 .link:hover {
     color: #777;
+    text-decoration: none;
 }
 
 .link-body {
@@ -236,8 +225,6 @@ ul {
     color: #777;
 }
 
-
-
 .link-body {
     color: #111;
     border-bottom: 1.2px solid #666;
@@ -245,10 +232,12 @@ ul {
 
 .link-body:hover {
     color: #aaa;
+    text-decoration: none;
 }
 
 .link-body:visited {
     border-bottom: 2px solid #ccc;
+    text-decoration: none;
 }
 
 .endless_container {
@@ -275,5 +264,109 @@ ul {
 }
 
 .endless_container a:hover {
-    color: #ccc;
+    text-decoration: none;
+}
+
+.twitter-icon,
+.linkedin-icon,
+.email-icon,
+.facebook-icon,
+.rss-icon,
+.github-icon {
+    position: relative;
+}
+
+.twitter-icon:before,
+.linkedin-icon:before,
+.email-icon:before,
+.facebook-icon:before,
+.rss-icon:before,
+.github-icon:before {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    opacity: 1;
+    -moz-transition: opacity .25s; /* Firefox */
+    -webkit-transition: opacity .25s; /* Safari and Chrome */
+    -o-transition: opacity .25s; /* Opera */
+    transition: opacity .25s;
+}
+
+.twitter-icon:after,
+.linkedin-icon:after,
+.email-icon:after,
+.facebook-icon:after,
+.rss-icon:after,
+.github-icon:after {
+    opacity: 0;
+    -moz-transition: opacity .25s; /* Firefox */
+    -webkit-transition: opacity .25s; /* Safari and Chrome */
+    -o-transition: opacity .25s; /* Opera */
+    transition: opacity .25s;
+}
+
+.twitter-icon:hover:before,
+.linkedin-icon:hover:before,
+.email-icon:hover:before,
+.facebook-icon:hover:before,
+.rss-icon:hover:before,
+.github-icon:hover:before {
+    opacity: 0;
+}
+
+.twitter-icon:hover:after,
+.linkedin-icon:hover:after,
+.email-icon:hover:after,
+.facebook-icon:hover:after,
+.rss-icon:hover:after,
+.github-icon:hover:after {
+    opacity: 1;
+}
+
+.twitter-icon:before {
+    content: url('icons/active/48/Twitter.png');
+}
+
+.linkedin-icon:before {
+    content: url('icons/active/48/Linkedin.png');
+}
+
+.email-icon:before {
+    content: url('icons/active/48/Email.png');
+}
+
+.facebook-icon:before {
+    content: url('icons/active/48/Facebook.png');
+}
+
+.rss-icon:before {
+    content: url('icons/active/48/RSS.png');
+}
+
+.github-icon:before {
+    content: url('icons/active/48/Github.png');
+}
+
+.twitter-icon:after {
+    content: url('icons/hover/48/Twitter.png');
+}
+
+.linkedin-icon:after {
+    content: url('icons/hover/48/Linkedin.png');
+}
+
+.email-icon:after {
+    content: url('icons/hover/48/Email.png');
+}
+
+.facebook-icon:after {
+    content: url('icons/hover/48/Facebook.png');
+}
+
+.rss-icon:after {
+    content: url('icons/hover/48/RSS.png');
+}
+
+.github-icon:after {
+    content: url('icons/hover/48/Github.png');
 }

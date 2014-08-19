@@ -5,6 +5,14 @@
 {% block jumbotron %}
 <section id="jumbotron" style="background-image: url({{STATIC_URL}}blog/sparkler.jpg);">
 	<section class="container">
+		<h1>Jeff Browning</h1>
+		<h4>Software Engineer &amp; Sculptor &amp; Burrito Enthusiast</h4>
+		<a href="https://twitter.com/Art_to_Code" target="_blank" class="twitter-icon"></a>
+		<a href="" target="_blank" class="github-icon"></a>
+		<a href="" target="_blank" class="linkedin-icon"></a>
+		<a href="" target="_blank" class="facebook-icon"></a>
+		<a href="" target="_blank" class="email-icon"></a>
+		<a href="" target="_blank" class="rss-icon"></a>
 	</section>
 </section>
 {% endblock %}
@@ -14,18 +22,11 @@
 <section class="row">
 	<section id='entry-content' class="col-sm-7">
 		<article class="post">
-			<p>I'm Jeffrey Browning, a software engineer in the bay area. I like bad horror movies and good tiramisu. I wrote the following blog post about my convoluted path to becoming a developer as a first post for the blog. It should tell ya everything you want to know.</p>
-			<p style="margin-left:70%;">~<em>Jeff</em>
-			<section class="date">{{ object.created| date:"d M Y" }}</section>
-			<h1>{{ object.title }}</h1>
-			<section class="tags">Tagged under 
-				{% for tag in object.tags.all %}
-					<a href='{% url "tag_index" tag=tag.slug %}' class='link'>{{tag.slug}}</a>
-					{% if not forloop.last %}// 
-					{% endif%}
-				{% endfor %}
-			</section>
-			<p>{{object.body|markdown}}</p>
+			<p>A transplant from Missouri, I moved to the Bay Area in 2012.  As is typical for many with rather disparate arrays of skillsets--sculpture, law, milieu management, organic gardening, and education--it took some time to find a job that fit. Never being a guy that rested on his laurels however, I messed around with Python to see if I could create some simple games while waiting to hear back from employers. And being the kind of guy whose idea of fun is doing multi-hour depth searches of Wikipedia, I went a little overboard. I got a little obsessed.</p>
+			<p>While continuing to delve into the depths of introductory programming I took a job with Fusion Academy, a private school catering to students with social, emotional, and academic differences in San Mateo, CA. I spent my first two weeks in the "homework café," where students hung out and did their work. If they needed help on any subject they would ask me, and thus I became a curriculum expert in many subjects. When a math and science teacher quit, I jumped in, read textbooks during my commutes on BART, and took over his classes. Even so, every night I was going home and studying programming.</p>
+			<p>In February of 2014 I took on an internship with Mightyspring, which gives recruiters tools for interacting with the candidates they manage. . They gave me a programming task—to make human-readable sentences out of relationships between skills, activities, and tooltechs. I did a serviceable job. My code was slow, but it worked. It iterated over the elements too many times. It showed that I could provide a solution, and that I had room for growth.</p>
+			<p>And here I now sit, still interning at Mighty Spring. I have learned a tremendous amount about paradigms, languages, and frameworks in the past year: functional programming; Matplotlib, SciPy and NumPy for printing graphs; MongoDB and postgreSQL for databases; Django and Flask for making those databases talk to the web. I groked git, which is not a simple task. And at this moment I am also teaching myself front-end development by formatting and designing this blog.</p>
+			<p>This blog has been built from the ground up in postgreSQL, Django, HTML, CSS, and JavaScript. For more information, visit the first blog post (insert link) in a series on how to start from absolute scratch (on a Windows machine, to boot).</p>
 		</article>
 	</section>
 </section>
