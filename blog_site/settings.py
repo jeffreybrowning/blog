@@ -110,6 +110,6 @@ if not DEBUG:
     AWS_STORAGE_BUCKET_NAME = os.environ['blogsite']
     AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
     STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    S3_URL = 'https://s3-us-west-1.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+    S3_URL = 'https://s3-us-west-1.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
     STATIC_URL = S3_URL
 
