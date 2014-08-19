@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'kjo*&4^l9lbv6207*5-u-!ezkdascu6$(sqi0f+xlzb%tk@r$@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'blog',
     'django_markdown',
     'django.contrib.admindocs',
+    'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -104,4 +105,11 @@ try:
     from local_settings import *
 except Exception as e:
     pass
+
+if not DEBUG:
+    AWS_STORAGE_BUCKET_NAME = os.environ['blogsite']
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    S3_URL = 'https://s3-us-west-1.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+    STATIC_URL = S3_URL
 

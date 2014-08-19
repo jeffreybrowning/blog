@@ -324,49 +324,49 @@ a {
 }
 
 .twitter-icon:before {
-    content: url('blog/icons/active/48/Twitter.png');
+    content: url('icons/active/32/Twitter.png');
 }
 
 .linkedin-icon:before {
-    content: url('icons/active/48/Linkedin.png');
+    content: url('icons/active/32/Linkedin.png');
 }
 
 .email-icon:before {
-    content: url('icons/active/48/Email.png');
+    content: url('icons/active/32/Email.png');
 }
 
 .facebook-icon:before {
-    content: url('icons/active/48/Facebook.png');
+    content: url('icons/active/32/Facebook.png');
 }
 
 .rss-icon:before {
-    content: url('icons/active/48/RSS.png');
+    content: url('icons/active/32/RSS.png');
 }
 
 .github-icon:before {
-    content: url('icons/active/48/Github.png');
+    content: url('icons/active/32/Github.png');
 }
 
 .twitter-icon:after {
-    content: url('blog/icons/hover/48/Twitter.png');
+    content: url('icons/hover/32/Twitter.png');
 }
 
 .linkedin-icon:after {
-    content: url('icons/hover/48/Linkedin.png');
+    content: url('icons/hover/32/Linkedin.png');
 }
 
 .email-icon:after {
-    content: url('icons/hover/48/Email.png');
+    content: url('icons/hover/32/Email.png');
 }
 
 .facebook-icon:after {
-    content: url('icons/hover/48/Facebook.png');
+    content: url('icons/hover/32/Facebook.png');
 }
 
 .rss-icon:after {
-    content: url('icons/hover/48/RSS.png');
+    content: url('icons/hover/32/RSS.png');
 }
 
 .github-icon:after {
-    content: url('icons/hover/48/Github.png');
+    content: url('icons/hover/32/Github.png');
 }
