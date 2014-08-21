@@ -1,6 +1,5 @@
 {% extends "blog/base.html" %}
 {% load django_markdown %}
-{% load staticfiles %}
 {% load endless %}
 
 {% block jumbotron %}
@@ -11,9 +10,8 @@
 		<a href="https://twitter.com/Art_to_Code" target="_blank" class="twitter-icon"></a>
 		<a href="https://github.com/jeffreybrowning" target="_blank" class="github-icon"></a>
 		<a href="http://www.linkedin.com/pub/jeffrey-browning/49/636/a30/" target="_blank" class="linkedin-icon"></a>
-		<a href="" target="_blank" class="facebook-icon"></a>
-		<a href="" target="_blank" class="email-icon"></a>
-		<a href="" target="_blank" class="rss-icon"></a>
+		<a href="mailto:jeffbrowning05@gmail.com?subject=Blog comment" target="_blank" class="email-icon"></a>
+		<a href="{% url 'feed' %}" rel="alternate" type="application/rss+xml" title="Art to Code Blog Feed" target="_blank" class="rss-icon"></a>
 	</section>
 </section>
 {% endblock %}

@@ -1,9 +1,10 @@
-{% load staticfiles %}
+{% load static from staticfiles %}
 <html>
     <head>
         <title>art to code</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/bootstrap.min.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}blog/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}blog/style.css" /> 
+        <link href="{% url 'feed' %}" rel="alternate" type="application/rss+xml" title="Art to Code Blog Feed" />
     </head>
 
     <body>

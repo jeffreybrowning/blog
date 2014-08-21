@@ -98,7 +98,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/dev/howto/static-files/
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
+
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, "templates"), )
 
 try:
@@ -107,9 +108,12 @@ except Exception as e:
     pass
 
 if not DEBUG:
-    AWS_STORAGE_BUCKET_NAME = os.environ['blogsite']
+    AWS_S3_SECURE_URLS = False
+    AWS_QUERYSTRING_AUTH = False
+
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
     AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
     STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    S3_URL = 'https://s3-us-west-1.amazonaws.com/%s/static/' % AWS_STORAGE_BUCKET_NAME
+    S3_URL = 'https://s3-us-west-1.amazonaws.com/blogsite/'
     STATIC_URL = S3_URL
-
