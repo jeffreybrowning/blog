@@ -7,7 +7,9 @@ html, body {
 }
 
 html {
-    background: url('garage.jpg') no-repeat center center fixed; 
+    background-image: url('garage.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center;
     background-attachment: fixed !important;
     height: 100%;
     width: 100%;
