@@ -5,12 +5,7 @@
 <section id="jumbotron">
 	<section class="container">
 		<h1 style="margin-bottom:0;">{{object.title}}</h1>
-		<h3 style="text-transform:lowercase;">Tagged under 
-				{% for tag in object.tags.all %}
-					<a href='{% url "tag_index" tag=tag.slug %}' class='link'>{{tag.slug}}</a>
-					{% if not forloop.last %}// 
-					{% endif%}
-				{% endfor %}  {{object.created|date:"d M Y"}}</h3>
+		<h3>{{object.created|date:"d M Y"}}</h3>
 		<a href="https://twitter.com/Art_to_Code" target="_blank" class="twitter-icon"></a>
 		<a href="https://github.com/jeffreybrowning" target="_blank" class="github-icon"></a>
 		<a href="http://www.linkedin.com/pub/jeffrey-browning/49/636/a30/" target="_blank" class="linkedin-icon"></a>
@@ -53,8 +48,14 @@
 			</section>
 		</section>
 		{% endif %}
+		<section class="side-entry">
+			<h4>Tagged under</h4>
+			{% for tag in object.tags.all %}
+				<p style="text-indent:0px;"><a href='{% url "tag_index" tag=tag.slug %}' class='link-body'>{{tag.slug}}</a></p>
+			{% endfor %}  
+		</section>
 	</section>
 </section>
-{% endblock %}
+{% endblock %} 
 
 
