@@ -2,11 +2,23 @@
 {% load staticfiles %}
 {% load django_markdown %}
 
+{% block jumbotron %}
+<section id="jumbotron">
+	<section class="container">
+		<h1 style="margin-bottom:0;">Tagged: *{{tag}}*</h1>
+		<h3>Hopefully there is more than one</h3>
+		<a href="https://twitter.com/Art_to_Code" target="_blank" class="twitter-icon"></a>
+		<a href="https://github.com/jeffreybrowning" target="_blank" class="github-icon"></a>
+		<a href="http://www.linkedin.com/pub/jeffrey-browning/49/636/a30/" target="_blank" class="linkedin-icon"></a>
+		<a href="mailto:jeffbrowning05@gmail.com?subject=Blog comment" target="_blank" class="email-icon"></a>
+		<a href="{% url 'feed' %}" rel="alternate" type="application/rss+xml" title="Art to Code Blog Feed" target="_blank" class="rss-icon"></a>
+	</section>
+</section>
+{% endblock %}
 
 {% block content %}
 <section class="row">
 	<section id='entry-content' class="col-sm-7">
-		<h1>Posts&nbsp;Tagged with&nbsp;{{tag}}</h1>
 		{% for object in entries %}
 			<article class="post">
 			<section class="date">{{ object.created| date:"d M Y" }}</section>
