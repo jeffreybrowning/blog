@@ -2,8 +2,10 @@ html, body {
     font-family: "Helvetica";
     font-size: 13pt;
     height: 100%;
+    width:100%;
     margin: 0;
     padding: 0;
+    min-width: 1280px;
 }
 
 html {
@@ -11,6 +13,7 @@ html {
     background-repeat: no-repeat;
     background-position: 0px center, 1024px center;
     background-attachment: fixed !important;
+    overflow-x: hidden;
     height: 100%;
     width: 100%;
 }
