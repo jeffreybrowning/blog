@@ -8,6 +8,9 @@ html, body {
 
 html {
     background: url('garage.jpg') no-repeat center center fixed; 
+    background-attachment: fixed !important;
+    height: 100%;
+    width: 100%;
 }
 
 body {
@@ -51,6 +54,7 @@ h1, h2, h3 {
 
 h1 {
     font-size: 218%;
+    background-color: transparent;
 }
 
 h2 {
@@ -141,7 +145,6 @@ a {
 }
 
 #jumbotron {
-/*    background-image: url('wood_background.jpg'); */
     height: 13.5em;
     width: 100%;
 }
@@ -154,6 +157,7 @@ a {
 #jumbotron h1 {
     font-family: "Georgia";
     font-size: 440%;
+    background-color: transparent;
 }
 
 #jumbotron a {
@@ -170,7 +174,7 @@ a {
 
 #entry-content {
     background-color:rgba(255,255,255,.95);
-    border: 1px solid #3A6387;
+    border: 1px solid #ccc;
     margin-top: 20px;
     padding: 10px;
 }
