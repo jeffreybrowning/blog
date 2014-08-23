@@ -6,7 +6,7 @@
 <section id="jumbotron">
 	<section class="container">
 		<h1 style="margin-bottom:0;">Art to Code</h1>
-		<h3 style="text-transform:lowercase;">THINK ABOUT SOMETHING CLEVER AND PUT IT HERE.</h3>
+		<h3 style="text-transform:lowercase;">Programming tutorials, cool stuff, and burrito reviews</h3>
 		<a href="https://twitter.com/Art_to_Code" target="_blank" class="twitter-icon"></a>
 		<a href="https://github.com/jeffreybrowning" target="_blank" class="github-icon"></a>
 		<a href="http://www.linkedin.com/pub/jeffrey-browning/49/636/a30/" target="_blank" class="linkedin-icon"></a>
@@ -20,7 +20,7 @@
 {% block content %}
 <section class="row">
 {% paginate 3 entries %}
-	<section id='entry-content' class="col-sm-7">
+	<section id='entry-content' class="col-sm-12 col-md-7">
 		{% for object in entries %}
 		<article class="post">
 			<section class="date">{{ object.created| date:"d M Y" }}</section>
@@ -38,7 +38,14 @@
 		</article>
 		{% endfor %}
 	</section>
-	<section class="col-sm-4 col-sm-offset-1 side-content">
+	<section class="col-md-4 col-md-offset-1 hidden-xs hidden-sm side-content">
+		<section class="side-entry">
+			<section class="about-me">
+				<h3>About Me</h3>
+				<p>I’ve done a lot of things—farming, paralegaling, teaching—but none compare to writing sweet, elegant code. I’m a junior engineer looking for a team to learn with, with the ultimate goal of being that full-stack wizard. You know the one.</p>
+				<p>That said I still know a lot about mollusks or raising goats, so if you want to talk about that, that’s ok.</p>
+			</section>
+		</section>
 		<section class="side-entry">
 			<a class="twitter-timeline" href="https://twitter.com/Art_to_Code" data-widget-id="500351040785358848">Tweets by @Art_to_Code</a>
 		</section>

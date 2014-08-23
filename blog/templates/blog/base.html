@@ -10,11 +10,10 @@
     <body>
 	    <section id="wrap">
 	    	<section id="main">
-		    	<section class="masthead">
+		    	<section id="masthead">
 		    		<section class="container">
 		    			<section class="row">
 							<a href="{% url 'index' %}" class="link">Home</a>
-							<a href="{% url 'about_me' %}" class="link">About&nbsp;Me</a>
 							<a href="{% url 'archive' %}" class="link">Archive</a>
 						</section>
 					</section>
@@ -28,8 +27,7 @@
 
 			</section>
 		</section>
-			{% block navtable %}
-			<section class="footer">
+			<section id="footer">
 				<section class="container">
 					<section class="row">
 						<section class="col-sm-7">
@@ -38,7 +36,6 @@
 					</section>
 				</section>
 			</section>
-			{% endblock %}
 
     </body>
 

@@ -4,19 +4,23 @@
 
 
 {% block content %}
-<nav>Posts&nbsp;Tagged<br>with&nbsp;{{tag}}</nav>
-{% for object in entries %}
-	<article class="post">
-	<section class="date">{{ object.created| date:"d M Y" }}</section>
-	<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="link">{{ object.title }}</a></h1>
-	<section class="tags">Tagged under 
-		{% for tag in object.tags.all %}
-			<a href='{% url "tag_index" tag=tag.slug %}' class='link'>{{tag.slug}}</a>
-			{% if not forloop.last %}// 
-			{% endif%}
+<section class="row">
+	<section id='entry-content' class="col-sm-7">
+		<h1>Posts&nbsp;Tagged with&nbsp;{{tag}}</h1>
+		{% for object in entries %}
+			<article class="post">
+			<section class="date">{{ object.created| date:"d M Y" }}</section>
+			<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="link">{{ object.title }}</a></h1>
+			<section class="tags">Tagged under 
+				{% for tag in object.tags.all %}
+					<a href='{% url "tag_index" tag=tag.slug %}' class='link'>{{tag.slug}}</a>
+					{% if not forloop.last %}// 
+					{% endif%}
+				{% endfor %}
+			</section>
+			<p>{{object.body|markdown|truncatewords:150}}</p>
+			</article>
 		{% endfor %}
 	</section>
-	<p>{{object.body|markdown|truncatewords:150}}</p>
-	</article>
-{% endfor %}
+</section>
 {% endblock %}

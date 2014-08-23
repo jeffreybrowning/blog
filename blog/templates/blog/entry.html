@@ -1,11 +1,30 @@
 {% extends "blog/base.html" %}
 {% load django_markdown %}
 
+{% block jumbotron %}
+<section id="jumbotron">
+	<section class="container">
+		<h1 style="margin-bottom:0;">{{object.title}}</h1>
+		<h3 style="text-transform:lowercase;">Tagged under 
+				{% for tag in object.tags.all %}
+					<a href='{% url "tag_index" tag=tag.slug %}' class='link'>{{tag.slug}}</a>
+					{% if not forloop.last %}// 
+					{% endif%}
+				{% endfor %}  {{object.created|date:"d M Y"}}</h3>
+		<a href="https://twitter.com/Art_to_Code" target="_blank" class="twitter-icon"></a>
+		<a href="https://github.com/jeffreybrowning" target="_blank" class="github-icon"></a>
+		<a href="http://www.linkedin.com/pub/jeffrey-browning/49/636/a30/" target="_blank" class="linkedin-icon"></a>
+		<a href="mailto:jeffbrowning05@gmail.com?subject=Blog comment" target="_blank" class="email-icon"></a>
+		<a href="{% url 'feed' %}" rel="alternate" type="application/rss+xml" title="Art to Code Blog Feed" target="_blank" class="rss-icon"></a>
+	</section>
+</section>
+{% endblock %}
+
 {% block content %}
 <section class="row">
 	<section id='entry-content' class="col-sm-7">
 		<article class="post">
-			<section class="date">{{ object.created| date:"d M Y" }}</section>
+<!--			<section class="date">{{ object.created| date:"d M Y" }}</section>
 			<h1><a href="{% url 'entry_detail' slug=object.slug %}" class="link">{{ object.title }}</a></h1>
 			<section class="tags">Tagged under 
 				{% for tag in object.tags.all %}
@@ -13,11 +32,11 @@
 					{% if not forloop.last %}// 
 					{% endif%}
 				{% endfor %}
-			</section>
+			</section> -->
 			<p>{{object.body|markdown}}</p>
 		</article>
 	</section>
-	<section class="col-sm-4 col-sm-offset-1 side-content">
+	<section class="col-sm-4 col-sm-offset-1 side-content" style="margin-top:0px;">
 		{% if object.get_next != False %}
 		<section class="side-entry">
 			<section class="next-entry">
@@ -34,16 +53,7 @@
 			</section>
 		</section>
 		{% endif %}
-		<section class="side-entry">
-			<a class="twitter-timeline" href="https://twitter.com/Art_to_Code" data-widget-id="500351040785358848">Tweets by @Art_to_Code</a>
-		</section>
 	</section>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-	if(!d.getElementById(id)){js=d.createElement(s);
-		js.id=id;
-		js.src=p+"://platform.twitter.com/widgets.js";
-		fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-	</script>
 </section>
 {% endblock %}
 

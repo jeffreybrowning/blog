@@ -1,25 +1,17 @@
-@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic);
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
-
 html, body {
-    padding: 0;
-    margin: 0;
     font-family: "Helvetica";
     font-size: 13pt;
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-#wrap {
-    min-height:100%;
-}
-
-#main {
-    overflow:auto;
-    padding-bottom: 2.5em;  /* must be same height as the footer */
-
+html {
+    background: url('garage.jpg') no-repeat center center fixed; 
 }
 
 body {
+    background-color: transparent;
 }
 
 em {
@@ -27,29 +19,29 @@ em {
 }
 
 header {
-    background-color: #FFA57C;
     background-color: #444;
-    padding-bottom: 20px;
-    width: 100%;
+    background-color: #FFA57C;
     box-shadow: 0px 1px 3.5px #666;
     height: 35px;
+    padding-bottom: 20px;
     position: relative;
+    width: 100%;
 }
 
 aside {
+    width: 20%;
+    color: #333;
     float: left;
-    text-align: left;
-	width: 20%;
-    padding-right: 1rem;
     font-size: 80%;
     font-weight: 300;
-    color: #333;
+    padding-right: 1rem;
     padding: 10px;
+    text-align: left;
 }
 
 aside h1 {
-    text-transform: uppercase;
     font-size: 100%;
+    text-transform: uppercase;
 }
 
 h1, h2, h3 {
@@ -62,28 +54,28 @@ h1 {
 }
 
 h2 {
-	font-weight: 400;
-	font-size: 164%;
-    margin-bottom: 1em;
+    font-size: 164%;
+    font-weight: 400;
+    margin-bottom: .3em;
     margin-top: 1em;
 }
 
 h3 {
+    font-size: 145%;
     font-weight: 300;
-	font-size: 145%;
 }
 
 h4 {
     font-weight: bold;
 }
 p {
-	font-family: "Georgia";
-	text-indent: 23.7px;
-	text-align: left;
-	text-rendering: opximizeLegibility;
-	line-height: 1.4em;
     color: #111;
+    font-family: "Georgia";
     font-weight: 300;
+    line-height: 1.4em;
+    text-align: left;
+    text-indent: 23.7px;
+    text-rendering: opximizeLegibility;
 }
 
 p + p {
@@ -91,16 +83,16 @@ p + p {
 }
 
 code {
-    padding: 3px;
     background-color: #F9F9F9;
     font-size: 75%;
+    padding: 3px;
 }
 
 hr {
+    border-top: 1px solid #ccc;
+    border: 0;
     display: block;
     height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
     margin-bottom: 0;
 }
 
@@ -116,16 +108,47 @@ ul {
 a {
     color: black;
 }
-#jumbotron {
+
+/* DIV IDS*/
+
+#wrap {
+    min-height:100%;
+}
+
+#main {
+    overflow:auto;
+    padding-bottom: 2.5em;  /* must be same height as the footer */
+}
+
+#masthead, #footer {
+    background-color: #3A6387;
+    box-shadow: 0px 2px 3.5px black;
+    font-weight: 300;
+    position: relative;
+    text-transform: uppercase;
     width: 100%;
+}
+
+#masthead a, #footer {
+    color: #fff;
+    font-size: 90%;
+    padding: 15px;
+}
+
+#masthead {
+    height: 2em;
+    padding-top: .5em;
+}
+
+#jumbotron {
+/*    background-image: url('wood_background.jpg'); */
     height: 13.5em;
-    box-shadow: 0px 1px 3.5px #666;
-    background-image: url('wood_background.jpg');
+    width: 100%;
 }
 
 #jumbotron p {
-    text-indent: 0px;
     color: #fff;
+    text-indent: 0px;
 }
 
 #jumbotron h1 {
@@ -133,24 +156,34 @@ a {
     font-size: 440%;
 }
 
-#jumbotron .container {
-    vertical-align: bottom;
-    padding-top: 40px;
+#jumbotron a {
     color: #fff;
+    font-size: 90%;
+}
+
+#jumbotron .container {
+    color: #fff;
+    padding-top: 40px;
     text-shadow: 3px 3px 4px #0D0D0D;
+    vertical-align: bottom;
 }
 
 #entry-content {
-    padding: 10px;
+    background-color:rgba(255,255,255,.95);
+    border: 1px solid #3A6387;
     margin-top: 20px;
-    background-color: #fff;
+    padding: 10px;
+}
+
+.side-content {
+    margin-top: 35px;
 }
 
 .side-entry {
-    background-color: #fff;
+    background-color:rgba(255,255,255,.95);
     border: 1px solid #ccc;
-    padding: 10px;
     margin-top: 20px;
+    padding: 10px;
 }
 
 .side-entry h3 {
@@ -161,31 +194,26 @@ a {
     margin-top: 0;
 }
 
-.masthead, .footer {
-    text-transform: uppercase;
-    font-weight: 300;
-    background-color: #444;
-    width: 100%;
+.about-me {
+    margin: 10px;
 }
 
-.masthead a, .footer {
-    color: #fff;
-    padding: 15px;
-    font-size: 90%;
+.about-me p {
+    font-family: "Courier";
+    line-height: 1.2em;
+    font-size: 11pt;
 }
 
-.masthead {
-    height: 2em;
-    padding-top: .3em;
-}
-
-.footer {
-    margin-bottom: 0;
-    height: 2.5em;
-    position: relative;
-    margin-top: 2.5em; /* negative value of footer height */
+#footer {
+    color: #ccc;
     clear:both; 
+    height: 2.5em;
+    margin-bottom: 0;
+    margin-top: 2.5em; /* negative value of footer height */
+    position: relative;
 }
+
+/* INLINE STYLES */
 
 .tags {
     font-size: 100%;
@@ -206,10 +234,10 @@ a {
 
 .endless_more, 
 .link {
-    display: inline;
-    transition: all 0.3s ease-out;
-    text-decoration: none;
     color:black;
+    display: inline;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
 }
 
 .link:hover {
@@ -218,11 +246,10 @@ a {
 }
 
 .link-body {
-    display: inline;
-    transition: all 0.3s ease-out;
-    /* Font styles */
-    text-decoration: none;
     color: #777;
+    display: inline;
+    text-decoration: none;
+    transition: all 0.3s ease-out;
 }
 
 .link-body {
@@ -241,31 +268,33 @@ a {
 }
 
 .endless_container {
-    width: 120px;
-    margin-top: 30px;
-    margin-left: 260px;
-    text-transform: uppercase;
-    padding: 6px 12px;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle; 
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: 4px;
     background-color: #428bca;
     border-color: #357ebd;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    margin-left: 260px;
+    margin-top: 30px;
+    padding: 6px 12px;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle; 
+    white-space: nowrap;
+    width: 120px;
 }
 
 .endless_container a {
     color: #fff;
     font-size: 14px;
-    line-height: 1.42857143;
     font-weight: 300;
+    line-height: 1.42857143;
 }
 
 .endless_container a:hover {
     text-decoration: none;
 }
+
+/* ICONS */
 
 .twitter-icon,
 .linkedin-icon,
@@ -282,10 +311,10 @@ a {
 .facebook-icon:before,
 .rss-icon:before,
 .github-icon:before {
-    position: absolute;
-    left: 0px;
     bottom: 0px;
+    left: 0px;
     opacity: 1;
+    position: absolute;
     -moz-transition: opacity .25s; /* Firefox */
     -webkit-transition: opacity .25s; /* Safari and Chrome */
     -o-transition: opacity .25s; /* Opera */

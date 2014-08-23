@@ -7,7 +7,7 @@ from models import Entry
 
 urlpatterns = patterns('',
     url(r'^$', views.blog_index, name="index"),
-    url(r'^about-me/', views.about_me, name="about_me"),
+#    url(r'^about-me/', views.about_me, name="about_me"),
     url(r'^archive/', views.archive_index, name="archive"),
     url(r'^feed/', feed.Posts(), name="feed"),
     url(r'^tags/(?P<tag>\S+)$', views.tag_index, name="tag_index"),
