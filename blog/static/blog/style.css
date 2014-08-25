@@ -5,10 +5,13 @@ html, body {
     width:100%;
     margin: 0;
     padding: 0;
-    min-width: 1280px;
 }
 
-#fixebg{
+/* TODO 
+fix #fixebg hack for mobile and iPad devices
+Seems to be many different ways to do this but few are working */
+
+#fixebg{  /*This is a hack for bg on mobile devices*/
 background: url(garage.jpg) top;
 height:100%;
 width:100%;
@@ -107,7 +110,6 @@ code {
 
 hr {
     border-top: 1px solid #ccc;
-    border: 0;
     display: block;
     height: 1px;
     margin-bottom: 0;
