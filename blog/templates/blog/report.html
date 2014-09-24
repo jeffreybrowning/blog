@@ -1,0 +1,403 @@
+
+<head>
+	<link rel="stylesheet" type="text/css" href="report.css">
+</head>
+<body>
+	<section id="query_response">
+		<section class="container">
+			<section class="pie-chart-description">
+			<h1>In Response to your query</h1>
+			<p>Your concern was that as students come in, the majority that 
+			leave unexpectedly do so quickly after they realize our schools
+			are not the right place for them.</p>
+			<div class="dropouts_per_y_attended"></div>
+			<p>After a cusory look at the data, this looks to be the case.</p>
+			<p>As you can see above, the vast amount of students who leave
+			our schools unexpectedly do so within the first year: specifically 44% (taking into account all years in which we have collected data). However, despite the fact that this looks like a dire problem, it really is not.</p>
+			<div class="dropouts_per_year"></div>
+			<p>This problem was protracted in previous years, but is no longer as significant. The last year that data was taken (2007), the percentage of all students enrolled at Zilla that left unexpectedly was 4%. Considering that for the previous five years it was over 10%, and once over 20%, this is a marked improvement in attrition.</p>
+			<p>Let us look at a breakdown of our schools one-by-one, and see that even the worst offenders have improved to a significant degree. </p>
+			<div class="schools_per_year"></div>
+			<p>For the first few years we started tracking data, we had a serious problem
+			with many schools. For instance, in 2002 school L lost almost 40% of its
+			students and school D lost more than 40% every year in the first few years of its running due to unexpected unenrollment. However, in recent years we have turned around the schools with the worst attrition. All schools, even those who have opened recently, are trending below 10% unexpected losses. This is also during a period where the enrollment at our schools has not decreased, but generally increased.</p>
+			<p>In conclusion, over this period sampled we have dealt with issues of unexpected unenrollment. However, those issues have been dealt with and the problem is now quite minimal across the entire school district.</p>
+			<h1></h1>
+			</section>
+		 </section>
+	</section>
+	<section id="mealtime">
+		<section class="container">
+			<h1>Meeting with Mealtime</h1>
+			<p>When speaking with a new company about integrating our products, I would want to know information that would reduce the amount of time needed to complete the project and reduce the chance for inferior, inelegant solutions. The questions I would ask follow these lines:</p>
+			<ol>
+				<li>What backend and tech stack does Mealtime use? Are you planning on switching to other technologies in the near future?</li>
+				<li>Do you already have an API for integrating with your product? If so, is it compatible with our tech stack?</li>
+				<li>If you don't have an API we can use, do you have any experience doing automatic integration with the software and backend we use? If so, what were the challenges involved for getting those services talking? Are there small, easily implemented libraries or tools out there that have worked for you in the past?</li>
+				<li>Have there been any significant shifts in the records of your database or fields that are no longer used that we can ignore? Do you have any plans for changing your schema during the time that it would take to bridge our products that we should be aware of? </li>
+				<li>Are the backend update patterns of our products compatible? Do you throttle your server during non-business hours when ours is trying to update, or do you use optimistic locking, etc.?</li>
+				<li>How will potential changes in the schema of each database be communicated to the other team? With how much heads-up? Who is responsible for being the contact point for both organizations? What kind of customer service can we expect when problems arise?</li>
+				<li>What is the security of the transfer going to be? Since we have financial information we should be sure to use the right form of network transport to ensure encrypted data. </li>
+			</ol>
+			<p>When in meetings, especially about complex problems, I would use a sound recorder so I could go over the information again if necessary. It has the added benefit of documenting the conversation for others, should it need to be referenced later by engineers or other teams.</p>
+			<p>When taking notes, I tend to use a bulleted style that allows others to quickly read and digest the overall structure of document. This lets team members read what they need to read when they need to read it, rather than frontloading them with extraneous information. If internet access is available, I generally take notes on Google Docs, which I would then share with the other members of my team. <a href="https://docs.google.com/document/d/1C9U1Rj0anWhslPmWlqWoTzHx1nApzIvRIUa2ajIZO-Q/edit?usp=sharing">Here is a link</a> to some quick notes from classwork on google docs.</p>
+			<p>Thank you for giving me the chance to interview at Schoolzilla. I am exicted about the problems Schoolzilla tackles and the chance to be part of the solution I see for beleaguered school districts. If you have anyquestions about the matericals I provided, please do not hesitate to email me at <a href="mailto:jeffbrowning05@gmail.com?subject=Interview questions" target="_blank">jeffbrowning05@gmail.com</a>.</p>
+			</section>
+		</section>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script>
+		var m = [80, 80, 80, 80]; // margins
+		var w = 750 - m[1] - m[3]; // width
+		var h = 400 - m[0] - m[2]; // height
+
+		var data = [0.44, 0.26, 0.16, 0.08, 0.06, 0.01];
+
+		var x = d3.scale.linear().domain([0, data.length-1]).range([0, w]);
+		var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
+
+		var line = d3.svg.line()
+			.x(function(d,i) { return x(i); })
+			.y(function(d) { return y(d); })
+
+			// Add an SVG element with the desired dimensions and margin.
+			var graph = d3.select(".dropouts_per_y_attended")
+						  .append("svg")
+					      .attr("width", w + m[1] + m[3])
+					      .attr("height", h + m[0] + m[2])
+					      .append("g")
+					      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+			var xAxis = d3.svg.axis()
+				  .scale(x)
+				  .ticks(5)
+
+			graph.append("g")
+			      .attr("class", "x axis")
+			      .attr("transform", "translate(0," + h + ")")
+			      .call(xAxis);
+
+			var yAxisLeft = d3.svg.axis()
+				  .scale(y)
+				  .ticks(4)
+				  .orient("left");
+
+			graph.append("g")
+			      .attr("class", "y axis")
+			      .attr("transform", "translate(-25,0)")
+			      .call(yAxisLeft);
+
+  			graph.append("path")
+  				  .attr("class", "top-chart")
+  				  .attr("d", line(data));
+
+
+			graph.selectAll("g.text")
+			   .data(data)
+			   .enter()
+			   .append("text")
+			   .text(function(d) {
+					return d * 100 + "%";
+			   })
+			   .attr("x", function(d, i) {
+					return x(i) + 5;
+			   })
+			   .attr("y", function(d) {
+					return y(d) - 5;
+			   })
+
+  			graph.append("text")
+			   .attr("class", "title")
+			   .attr("x", w/2)
+			   .attr("y", -35)
+			   .attr("text-anchor", "middle")
+			   .text("Percentage of Students Leaving Unexpectedly by Years of Enrollment")
+			   .style("fill", "black")
+			   .style("font-size", "15pt")
+
+			graph.append("text")
+			   .attr("class", "title")
+			   .attr("x", w/2)
+			   .attr("y", h + 50)
+			   .attr("text-anchor", "middle")
+			   .text("Years of enrollment")
+			   .style("fill", "black")
+			   .style("font-size", "15pt")
+
+			var circles = graph.selectAll("g.circle")
+				        .data(data)
+				        .enter()
+				        .append("circle")
+						.attr("cx", function (d, i) {  //use the fuckin scales dawg!
+                			return x(i);
+            				})
+           		   		.attr("cy", function (d) {
+                			return y(d);
+                			})
+           		   		.attr("r", 5)
+           		   		.style("fill", "steelblue")
+
+           	graph.on("mouseover", function(){
+	 				 d3.selectAll(".top-chart")
+				        .attr("stroke-dasharray", totalLength+","+totalLength)
+				        .attr("stroke-dashoffset", totalLength)
+				        .transition()
+				        .duration(2000)
+				        .ease("linear-in-out")
+				        .attr("stroke-dashoffset", 0)
+		            	})
+
+	</script>
+	<script>
+		var m = [80, 80, 80, 80]; // margins
+		var w = 750 - m[1] - m[3]; // width
+		var h = 400 - m[0] - m[2]; // height
+
+		var data = [0.15, 0.16, 0.22, 0.14, 0.12, 0.04]
+		var years = ["2002", "2003", "2004", "2005", "2006", "2007"]
+
+		var x = d3.scale.linear().domain([0, data.length-1]).range([0, w]);
+		var y = d3.scale.linear().domain([0, d3.max(data)]).range([h, 0]);
+
+		var line = d3.svg.line()
+			.x(function(d,i) { return x(i); })
+			.y(function(d) { return y(d); })
+
+			// Add an SVG element with the desired dimensions and margin.
+			var graph = d3.select(".dropouts_per_year")
+						  .append("svg")
+					      .attr("width", w + m[1] + m[3])
+					      .attr("height", h + m[0] + m[2])
+					      .append("g")
+					      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+			var xAxis = d3.svg.axis()
+				  .scale(x)
+				  .ticks(5)
+				  .tickFormat(function(d, i) { return years[i]; })
+
+			graph.append("g")
+			      .attr("class", "x axis")
+			      .attr("transform", "translate(0," + h + ")")
+			      .call(xAxis);
+
+			var yAxisLeft = d3.svg.axis()
+				  .scale(y)
+				  .ticks(4, "%")
+				  .orient("left");
+
+			graph.append("g")
+			      .attr("class", "y axis")
+			      .attr("transform", "translate(-25,0)")
+			      .call(yAxisLeft);
+
+  			var path = graph.append("path")
+  						.attr("class", "middle-chart")
+  				  		.attr("d", line(data));
+
+			graph.selectAll("g.text")
+			   .data(data)
+			   .enter()
+			   .append("text")
+			   .text(function(d) {
+					return Math.round(d * 100) + "%";
+			   })
+			   .attr("x", function(d, i) {
+					return x(i) - 10;
+			   })
+			   .attr("y", function(d) {
+					return y(d) - 10;
+			   })
+
+  			graph.append("text")
+			   .attr("class", "title")
+			   .attr("x", w/2)
+			   .attr("y", -35)
+			   .attr("text-anchor", "middle")
+			   .text("Number of Students Leaving Unexpectedly per Year")
+			   .style("fill", "black")
+			   .style("font-size", "15pt")
+
+			graph.append("text")
+			   .attr("class", "title")
+			   .attr("x", w/2)
+			   .attr("y", h + 50)
+			   .attr("text-anchor", "middle")
+			   .text("Year")
+			   .style("fill", "black")
+			   .style("font-size", "15pt")
+
+			var circles = graph.selectAll("g.circle")
+				        .data(data)
+				        .enter()
+				        .append("circle")
+						.attr("cx", function (d, i) {  //use the fuckin scales dawg!
+                			return x(i);
+            				})
+           		   		.attr("cy", function (d) {
+                			return y(d);
+                			})
+           		   		.attr("r", 5)
+           		   		.style("fill", "steelblue")
+
+            var totalLength = path.node().getTotalLength();
+
+		    graph.on("mouseover", function(){
+	 				 d3.selectAll(".middle-chart")
+				        .attr("stroke-dasharray", totalLength+","+totalLength)
+				        .attr("stroke-dashoffset", totalLength)
+				        .transition()
+				        .duration(2000)
+				        .ease("linear-in-out")
+				        .attr("stroke-dashoffset", 0)
+		            	})
+
+	</script>
+	<script type="text/javascript">
+		var data = {'A': [{'year': '15', 'perc': 0.17 }, {'year': '16', 'perc': 0.1 }, {'year': '17', 'perc': 0.03 }], 'B': [{'year': '13', 'perc': 0.14 }, {'year': '14', 'perc': 0.18 }, {'year': '15', 'perc': 0.15 }, {'year': '16', 'perc': 0.18 }, {'year': '17', 'perc': 0.04 }], 'C': [{'year': '16', 'perc': 0.08 }, {'year': '17', 'perc': 0.01 }], 'D': [{'year': '13', 'perc': 0.38 }, {'year': '14', 'perc': 0.43 }, {'year': '15', 'perc': 0.31 }, {'year': '16', 'perc': 0.19 }, {'year': '17', 'perc': 0.08 }], 'L': [{'year': '16', 'perc': 0.2 }, {'year': '17', 'perc': 0.04 }], 'P': [{'year': '17', 'perc': 0.05 }], 'R': [{'year': '12', 'perc': 0.23 }, {'year': '13', 'perc': 0.16 }, {'year': '14', 'perc': 0.16 }, {'year': '15', 'perc': 0.1 }, {'year': '16', 'perc': 0.04 }, {'year': '17', 'perc': 0.01 }], 'S': [{'year': '12', 'perc': 0.36 }, {'year': '13', 'perc': 0.08 }, {'year': '14', 'perc': 0.2 }, {'year': '15', 'perc': 0.13 }, {'year': '16', 'perc': 0.13 }, {'year': '17', 'perc': 0.05 }], 'U': [{'year': '12', 'perc': 0.25 }, {'year': '13', 'perc': 0.2 }, {'year': '14', 'perc': 0.31 }, {'year': '15', 'perc': 0.13 }, {'year': '16', 'perc': 0.12 }, {'year': '17', 'perc': 0.04 }], 'V': [{'year': '12', 'perc': 0.11 }, {'year': '13', 'perc': 0.16 }, {'year': '14', 'perc': 0.14 }, {'year': '15', 'perc': 0.1 }, {'year': '16', 'perc': 0.06 },{'year': '17', 'perc': 0.01 }]}
+		var entries =	d3.entries(data)
+
+		var m = [80, 80, 80, 80]; // margins
+		var w = 750 - m[1] - m[3]; // width
+		var h = 400 - m[0] - m[2]; // height
+
+		var x = d3.scale.linear().domain([12, 17]).range([0, w]);
+		var y = d3.scale.linear().domain([0, .40]).range([h, 0]);
+
+		var colors = d3.scale.category10()
+
+		var line = d3.svg.line()
+		    .x(function(d) { console.log(d.year); return x(d.year); })
+		    .y(function(d) { console.log(d.perc); return y(d.perc); })
+		    .interpolate("basis")
+
+		var graph = d3.select(".schools_per_year")
+					  .append("svg")
+				      .attr("width", w + m[1] + m[3])
+				      .attr("height", h + m[0] + m[2])
+				      .append("g")
+				      .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+		var path = graph.selectAll("g.line")
+		    .data(entries)
+		    .enter()
+		    .append("path")
+		    .attr("class", "line")
+		    .attr("class", "bottom-chart")
+		    // function(d), not just line function 
+		    .attr("d", function(d){ 
+		    	console.log(d);
+		    	return line(d.value); })
+		    .attr("stroke", function(d) { return colors(d.key) })
+		    .attr("fill", "none")
+
+			var xAxis = d3.svg.axis()
+				  .scale(x)
+				  .ticks(5)
+				  .tickFormat(function(d, i) { return years[i]; })
+
+			graph.append("g")
+			      .attr("class", "x axis")
+			      .attr("transform", "translate(0," + h + ")")
+			      .call(xAxis);
+
+			var yAxisLeft = d3.svg.axis()
+				  .scale(y)
+				  .ticks(6, "%")
+				  .orient("left");
+
+			graph.append("g")
+			      .attr("class", "y axis")
+			      .attr("transform", "translate(-25,0)")
+			      .call(yAxisLeft);
+
+			graph.selectAll("g.text")
+			   .data(data)
+			   .enter()
+			   .append("text")
+			   .text(function(d) {
+					return Math.round(d * 100) + "%";
+			   })
+			   .attr("x", function(d, i) {
+					return x(i) - 10;
+			   })
+			   .attr("y", function(d) {
+					return y(d.year) - 10;
+			   })
+
+  			graph.append("text")
+			   .attr("class", "title")
+			   .attr("x", w/2)
+			   .attr("y", -35)
+			   .attr("text-anchor", "middle")
+			   .text("Percentage of Students Leaving Unexpectedly per Year per School")
+			   .style("fill", "black")
+			   .style("font-size", "15pt")
+
+			graph.append("text")
+			   .attr("class", "title")
+			   .attr("x", w/2)
+			   .attr("y", h + 50)
+			   .attr("text-anchor", "middle")
+			   .text("Year")
+			   .style("fill", "black")
+			   .style("font-size", "15pt")
+
+		    graph.on("mouseover", function(){
+				 d3.selectAll(".bottom-chart")
+			        .attr("stroke-dasharray", totalLength+","+totalLength)
+			        .attr("stroke-dashoffset", totalLength)
+			        .transition()
+			        .duration(2000)
+			        .ease("linear-in-out")
+			        .attr("stroke-dashoffset", 0)
+		        	})
+
+		   	var legend = graph.append("g")
+			  .attr("class", "legend")
+			  .attr("height", 100)
+			  .attr("width", 100)
+			  .attr('transform', 'translate(80,-10)')    
+		  
+			legend.selectAll('rect')
+			  .data(entries)
+			  .enter()
+			  .append("rect")
+			  .attr("x", w - 65)
+			  .attr("y", function(d, i){ return i *  20;})
+			  .attr("width", 10)
+			  .attr("height", 10)
+			  .style("fill", function(d) { return colors(d.key); });
+			  
+			legend.selectAll('text')
+			  .data(entries)
+			  .enter()
+			  .append("text")
+			  .attr("x", w - 52)
+			  .attr("y", function(d, i){ return i *  20 + 10;})
+			  .text(function(d, i) {
+					return d.key;
+			  })
+			  .style("fill", "black");
+
+	</script>
+</body>
+
+
+<!--
+Left unexpectedly dictionary per year of time at zilla
+defaultdict(<type 'int'>, {'1': 726, '3': 256, '2': 436, '5': 96, '4': 127, '6': 9})
+Raw enrollment per school for the entire period
+defaultdict(<type 'int'>, {'A': 220, 'C': 447, 'B': 997, 'D': 553, 'L': 163, 'P': 228, 'S': 998, 'R': 534, 'U': 475, 'V': 525})
+Total # that left unexpectedly over all years
+1650
+Percentages of students who left unexpectedly by number of years attending
+[0.44, 0.16, 0.26, 0.06, 0.08, 0.01]
+ 
+Total number of Zilla students per year
+defaultdict(<type 'int'>, {'13': 1717, '12': 1239, '15': 2214, '14': 1959, '17': 3169, '16': 2831})
+Amount of losses of unexpected students per year
+defaultdict(<type 'int'>, {'13': 271, '12': 192, '15': 309, '14': 422, '17': 113, '16': 343})
+Percentage of students per year that left unexpectedly
+{'13': 0.1578334304018637, '12': 0.1549636803874092, '15': 0.13956639566395665, '14': 0.21541602858601328, '17': 0.03565793625749448, '16': 0.12115860120098905}
+
+-->

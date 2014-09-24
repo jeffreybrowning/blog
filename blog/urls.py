@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^feed/', feed.Posts(), name="feed"),
     url(r'^tags/(?P<tag>\S+)$', views.tag_index, name="tag_index"),
     url(r'^(?P<slug>\S+)$', views.BlogDetail.as_view(), name="entry_detail"),
+    url(r'^report/', views.report, name = "report"),
 )

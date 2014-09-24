@@ -31,3 +31,6 @@ def about_me(request, template = "blog/about_me.html"):
 
     return render(request, template, context)
 
+def report(request, template = "blog/report.html"):
+    context = {}
+    return render(request, template,context)

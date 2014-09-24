@@ -1,0 +1,35 @@
+-e git://github.com/django/django.git@8568e7cfa4fb87cd0a9ead1b3fbb7a39d19e98b9#egg=django
+
+with open('.env') as f:
+    content = f.read()
+    for line in content.splitlines():
+        kv = line.split('=')
+        os.environ[kv[0]] = kv[1]
+
+<p>{{STATIC_URL}}</p>
+<p>"{% static 'blog/style.css' %}"</p>
+
+
+what are the tags per entry?
+
+for each of those tags in that list of tags based on their entry
+
+make a new dictionary that has those tags and incremements by one for each time they exist
+
+
+d = {}
+for entry in entry.objects.all():
+	for tag in entry.tags.all():
+		if d.get[tag, 0] != 0:
+			d[tag] += 1
+		else:
+			d[tag] = 1
+
+
+			
+#jumbotron {
+/*    background-image: url('wood_background.jpg'); */
+    box-shadow: 0px 1px 3.5px #666;
+    height: 13.5em;
+    width: 100%;
+}
